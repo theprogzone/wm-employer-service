@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wm-employer-service
+  labels:
+    app: wm-employer-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: wm-employer-service
+  template:
+    metadata:
+      labels:
+        app: wm-employer-service
+    spec:
+      containers:
+        - name: wm-employer-service
+          image:
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wm-employer-service
+  labels:
+    app: wm-employer-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: my-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
