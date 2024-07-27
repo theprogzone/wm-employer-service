@@ -41,7 +41,7 @@ jobs:
         run: docker build -t wm-employer-service .
 
       - name: Tag Docker image
-        run: docker tag myapp:latest 211125328220.dkr.ecr.ap-southeast-1.amazonaws.com/wm-employer-service:latest
+        run: docker tag wm-employer-service:latest 211125328220.dkr.ecr.ap-southeast-1.amazonaws.com/wm-employer-service:latest
 
       - name: Push Docker image to ECR
         run: docker push 211125328220.dkr.ecr.ap-southeast-1.amazonaws.com/wm-employer-service:latest
