@@ -34,14 +34,14 @@ jobs:
 
       - name: Log in to Amazon ECR
         run: |
-          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | \
+          aws ecr get-login-password --region ap-southeast-1 | \
           docker login --username AWS --password-stdin 211125328220.dkr.ecr.ap-southeast-1.amazonaws.com
 
       - name: Build Docker image
         run: docker build -t wm-employer-service .
 
       - name: Tag Docker image
-        run: docker tag myapp:latest 211125328220.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/wm-employer-service:latest
+        run: docker tag myapp:latest 211125328220.dkr.ecr.ap-southeast-1.amazonaws.com/wm-employer-service:latest
 
       - name: Push Docker image to ECR
         run: docker push 211125328220.dkr.ecr.ap-southeast-1.amazonaws.com/wm-employer-service:latest
