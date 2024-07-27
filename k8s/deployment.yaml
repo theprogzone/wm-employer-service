@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: wm-employer-service
-          image:
+          image: wm-employer-service:latest
           ports:
             - containerPort: 8080
