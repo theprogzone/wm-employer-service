@@ -32,10 +32,10 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t <your-docker-repo>/myapp:latest .
+        run: docker build -t 211125328220.dkr.ecr.ap-southeast-1.amazonaws.com/wm-employer-service:latest .
 
       - name: Push Docker image
-        run: docker push <your-docker-repo>/myapp:latest
+        run: docker push 211125328220.dkr.ecr.ap-southeast-1.amazonaws.com/wm-employer-service:latest
 
   deploy:
     runs-on: ubuntu-latest
