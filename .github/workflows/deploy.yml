@@ -55,7 +55,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup kubectl
-        uses: aws/setup-kubectl@v3
+        uses: azure/setup-kubectl@v3
+        with:
+          version: '1.29'
 
       - name: Update kubeconfig
         run: aws eks update-kubeconfig --region ap-southeast-1 --name wm-cluster
